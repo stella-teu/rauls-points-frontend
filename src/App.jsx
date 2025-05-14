@@ -8,6 +8,7 @@ import { useContext } from "react";
 import { UserContext } from "./contexts/UserContext.jsx"
 import { Routes, Route } from "react-router";
 import "./App.css";
+import  Leaderboard  from "./components/Leaderboard/Leaderboard.jsx"
 
 function App() {
   const { profile } = useContext(UserContext);
@@ -19,6 +20,7 @@ function App() {
         <Route path="/" element={<Landing  />}/>
         <Route path="/register" element={<Register />} />
         <Route path="/log-in" element={<Login />} />
+        <Route path="/leaderboard" element={<Leaderboard/>}/>
       </Routes>
     </>
   );

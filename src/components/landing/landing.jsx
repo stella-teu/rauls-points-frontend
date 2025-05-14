@@ -4,8 +4,8 @@ import "./Landing.css";
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 function Landing() {
-  const [leaders, setLeaders] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [Users, setUsers] = useState([]);
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -19,7 +19,7 @@ function Landing() {
         return res.json();
       })
       .then(data => {
-        setLeaders(data);
+        setUsers(data);
         setLoading(false);
       })
       .catch(err => {
@@ -31,8 +31,8 @@ function Landing() {
   if (loading) return <p>Loading leaderboard...</p>;
   if (error) return <p>{error}</p>;
 
-  const podium = leaders.slice(0, 3);
-  const rest = leaders.slice(3);
+  const podium = Users.slice(0, 3);
+  const rest = Users.slice(3);
 
   return (
     <main className="leaderboard-container">
