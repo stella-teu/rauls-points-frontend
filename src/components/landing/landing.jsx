@@ -1,38 +1,51 @@
 import { useEffect, useState } from "react";
 import "./Landing.css";
+import { getUsers } from "../../services/userService";
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+// const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 function Landing() {
-  const [leaders, setLeaders] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
+    const [users, setUsers] = useState([])
+    // const [loading, setLoading] = useState(true);
+    const [error, setError] = useState("");
 
-  useEffect(() => {
-    fetch(`${BACKEND_URL}/profiles/?leaderboard=true`, {
-      headers: {
-        "Content-Type": "application/json",
+  
+    useEffect(() => {
+      const fetchUsers = async() => {
+        const usersData = await getUsers()
+        setUsers(usersData)
       }
-    })
-      .then(res => {
-        if (!res.ok) throw new Error("Failed to fetch leaderboard");
-        return res.json();
-      })
-      .then(data => {
-        setLeaders(data);
-        setLoading(false);
-      })
-      .catch(err => {
-        setError(err.message);
-        setLoading(false);
-      });
-  }, []);
+  
+      fetchUsers()
+    }, [])
+//   const [leaders, setLeaders] = useState([]);
+//   const [error, setError] = useState("");
 
-  if (loading) return <p>Loading leaderboard...</p>;
+//   useEffect(() => {
+//     fetch(`${BACKEND_URL}/profiles/?leaderboard=true`, {
+//       headers: {
+//         "Content-Type": "application/json",
+//       }
+//     })
+//       .then(res => {
+//         if (!res.ok) throw new Error("Failed to fetch leaderboard");
+//         return res.json();
+//       })
+//       .then(data => {
+//         setLeaders(data);
+//         setLoading(false);
+//       })
+//       .catch(err => {
+//         setError(err.message);
+//         setLoading(false);
+//       });
+//   }, []);
+
+  // if (loading) return <p>Loading leaderboard...</p>;
   if (error) return <p>{error}</p>;
 
-  const podium = leaders.slice(0, 3);
-  const rest = leaders.slice(3);
+  const podium = users.slice(0, 3);
+  const rest = users.slice(3);
 
   return (
     <main className="leaderboard-container">
