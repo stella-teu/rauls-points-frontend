@@ -1,24 +1,22 @@
 import { createContext, useState, useEffect } from "react";
+import { verifyUserProfile } from "../services/authService";
 
 export const UserContext = createContext();
 
 export function UserProvider({ children }) {
-  const [user, setUser] = useState(null);
+  const [profile, setProfile] = useState(null);
 
-  const getUserFromToken = () => {
-    const token = localStorage.getItem("token"); // xyz.123.zzz
-
-    if (!token) return null;
-
-    return JSON.parse(atob(token.split(".")[1])).payload;
+  const getUserProfileFromToken = async () => {
+    const profileData = await verifyUserProfile()
+    setProfile(profileData);
   };
 
   useEffect(() => {
-    const userData = getUserFromToken();
-    setUser(userData);
+    getUserProfileFromToken();
   }, []);
 
-  const valueObject = { user, setUser };
+  const valueObject = { profile, setProfile };
+  console.log("value: ", valueObject)
 
   return (
     <UserContext.Provider value={valueObject}>

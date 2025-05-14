@@ -1,54 +1,41 @@
-const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/users`;
+import api from "./apiConfig";
 
-export const signUp = async (formData) => {
+export const signUp = async (credentials) => {
   try {
-    const res = await fetch(`${BASE_URL}/sign-up`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
-
-    const data = await res.json();
-    console.log("Data: ", data);
-
-    if (data.err) {
-      throw new Error(data.err);
-    }
-
-    if (!data.token) {
-      throw new Error("Invalid response from server");
-    }
-
-    localStorage.setItem("token", data.token);
-    return JSON.parse(atob(data.token.split(".")[1])).payload;
+    const resp = await api.post("/register/", credentials);
+    console.log(resp)
+    localStorage.setItem("token", resp.data.access);
+    return resp.data.profile;
   } catch (error) {
-    console.log(error);
-    throw new Error(error);
+    throw error;
   }
 };
 
-export const signIn = async (formData) => {
+export const signIn = async (credentials) => {
   try {
-    const res = await fetch(`${BASE_URL}/sign-in`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
-
-    const data = await res.json();
-
-    if (data.err) {
-      throw new Error(data.err);
-    }
-
-    if (!data.token) {
-      throw new Error("Invalid response from server");
-    }
-
-    localStorage.setItem("token", data.token);
-    return JSON.parse(atob(data.token.split(".")[1])).payload;
-  } catch (err) {
-    console.log(err);
-    throw new Error(err);
+    const resp = await api.post("/login/", credentials);
+    localStorage.setItem("token", resp.data.access);
+    return resp.data.profile;
+  } catch (error) {
+    throw error;
   }
+};
+
+export const signOut = async () => {
+  try {
+    localStorage.removeItem("token");
+    return true;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const verifyUserProfile = async () => {
+  const token = localStorage.getItem("token");
+  if (token) {
+    const resp = await api.post("/token/refresh/");
+    localStorage.setItem("token", resp.data.access);
+    return resp.data.profile;
+  }
+  return null;
 };
