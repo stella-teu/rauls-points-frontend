@@ -1,7 +1,7 @@
 import NavBar from "./components/NavBar/Navbar.jsx";
 import Register from "./components/Register/Register.jsx";
 import Login from "./components/Login/Login.jsx";
-import Landing from "./components/Landing/Landing.jsx";
+import Landing from "./components/Landing/Landing.jsx"
 // import Dashboard from "./components/Dashboard/Dashboard.jsx";
 // import Show from "./components/Show/Show.jsx";
 import { useContext } from "react";
