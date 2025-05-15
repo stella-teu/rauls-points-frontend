@@ -1,7 +1,7 @@
 import NavBar from "./components/NavBar/Navbar.jsx";
 import Register from "./components/register/register.jsx";
 import Login from "./components/login/login.jsx";
-import Landing from "./components/Landing/landing.jsx";
+import Landing from "./components/landing/landing.jsx";
 import Leaderboard from "./components/leaderboard/leaderboard.jsx";
 import Profile from "./components/profile/profile.jsx";
 // import Dashboard from "./components/Dashboard/Dashboard.jsx";
