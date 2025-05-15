@@ -23,7 +23,7 @@ function NavBar() {
         </Link>
       </li>
       <li>
-        <Link to="/profile/:id">
+        <Link to="/profile">
           <button>Profile </button>
         </Link>
       </li>
@@ -66,7 +66,7 @@ function NavBar() {
         </Link>
       </li>
       <li>
-        <Link to="/profile/:id">
+        <Link to="/profile">
           <button>Profile </button>
         </Link>
       </li>

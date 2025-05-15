@@ -22,7 +22,31 @@ function Leaderboard() {
       <div className="cohort-dropdown">
         <button className='Cohort'></button>
       </div>
-      <div className="leaderboard-container">
+       <table className="leaderboard-table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Profile</th>
+            <th>Username</th>
+            <th>Points</th>
+            <th>Cohort</th>
+          </tr>
+        </thead>
+        <tbody>
+          {users.map((user, idx) => (
+            <tr key={user.id}>
+              <td>{idx + 4}</td>
+              <td>
+                <img className="avatar" src={user.profile_pic || "/default.jpg"} alt="profile" />
+              </td>
+              <td>{user.user.username}</td>
+              <td>{user.total_points}</td>
+              <td>{user.cohort_name}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      {/* <div className="leaderboard-container">
         <ol>
         {users.length && users.map((user) => (
           <div key={user.id} className="user-card">
@@ -35,7 +59,7 @@ function Leaderboard() {
             </div>
         ))}
         </ol>
-      </div>
+      </div> */}
     </div>
   )
 }

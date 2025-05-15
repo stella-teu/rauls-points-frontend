@@ -3,6 +3,7 @@ import Register from "./components/Register/Register.jsx";
 import Login from "./components/Login/Login.jsx";
 import Landing from "./components/Landing/landing.jsx";
 import Leaderboard from "./components/Leaderboard/Leaderboard.jsx";
+import Profile from "./components/Profile/Profile.jsx";
 // import Dashboard from "./components/Dashboard/Dashboard.jsx";
 // import Show from "./components/Show/Show.jsx";
 import { useContext } from "react";
@@ -21,6 +22,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/log-in" element={<Login />} />
         <Route path="/leaderboard" element={<Leaderboard />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </>
   );
