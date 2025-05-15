@@ -24,7 +24,7 @@ const Profile = () => {
         setProfile(profileData);
         setEditData({
           bio: profileData.bio,
-          // profile_pic: profileData.profile_pic,
+          profile_pic: profileData.profile_pic.replace(".jpeg", ".jpg"),
           username: profileData.user.username,
         });
         // setSelectedFile(profileData.profile_pic)

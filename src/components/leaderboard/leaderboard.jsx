@@ -65,7 +65,7 @@ function Leaderboard() {
             <tr key={user.id}>
               <td>{idx + 4}</td>
               <td>
-                <img className="avatar" src={user.profile_pic || "/default.jpg"} alt="profile" />
+                <img className="avatar" src={user.profile_pic.replace(".jpeg", ".jpg") || "/default.jpg"} alt="profile" />
               </td>
               <td>{user.user.username}</td>
               <td>{user.total_points}</td>

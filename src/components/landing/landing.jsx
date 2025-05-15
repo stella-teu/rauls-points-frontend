@@ -8,6 +8,7 @@ function Landing() {
     useEffect(() => {
       const fetchUsers = async() => {
         const usersData = await getUsers()
+        console.log(usersData)
         setUsers(usersData)
       }
   
@@ -24,21 +25,21 @@ function Landing() {
       <div className="podium">
         {podium[1] && (
           <div className="podium-slot second">
-            <img src={podium[1].profile_pic || "/default.jpg"} alt="2nd" />
+            <img src={podium[1].profile_pic.replace(".jpeg", ".jpg") || "/default.jpg"} alt="2nd" />
             <p>{podium[1].user.username}</p>
             <span>{podium[1].total_points} pts</span>
           </div>
         )}
         {podium[0] && (
           <div className="podium-slot first">
-            <img src={podium[0].profile_pic || "/default.jpg"} alt="1st" />
+            <img src={podium[0].profile_pic.replace(".jpeg", ".jpg") || "/default.jpg"} alt="1st" />
             <p>{podium[0].user.username}</p>
             <span>{podium[0].total_points} pts</span>
           </div>
         )}
         {podium[2] && (
           <div className="podium-slot third">
-            <img src={podium[2].profile_pic || "/default.jpg"} alt="3rd" />
+            <img src={podium[2].profile_pic.replace(".jpeg", ".jpg") || "/default.jpg"} alt="3rd" />
             <p>{podium[2].user.username}</p>
             <span>{podium[2].total_points} pts</span>
           </div>
@@ -60,7 +61,7 @@ function Landing() {
             <tr key={user.id}>
               <td>{idx + 4}</td>
               <td>
-                <img className="avatar" src={user.profile_pic || "/default.jpg"} alt="profile" />
+                <img className="avatar" src={user.profile_pic.replace(".jpeg", ".jpg") || "/default.jpg"} alt="profile" />
               </td>
               <td>{user.user.username}</td>
               <td>{user.total_points}</td>
