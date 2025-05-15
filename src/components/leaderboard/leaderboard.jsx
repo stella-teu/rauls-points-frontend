@@ -74,20 +74,7 @@ function Leaderboard() {
           ))}
         </tbody>
       </table>
-      {/* <div className="leaderboard-container">
-        <ol>
-        {users.length && users.map((user) => (
-          <div key={user.id} className="user-card">
-            <li>
-              <Link to={`/profiles/${user.id}`}>
-              </Link>
-              <h2>{user.user.username}</h2>
-              <p>{user.total_points}</p>
-              </li>
-            </div>
-        ))}
-        </ol>
-      </div> */}
+      
     </div>
   )
 }
