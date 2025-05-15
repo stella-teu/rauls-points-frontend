@@ -1,0 +1,82 @@
+.home-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px); /* Adjust based on navbar height */
+  padding: 2rem;
+  background-color: #f8f8f8;
+  font-family: sans-serif;
+}
+
+.home-form {
+  background-color: white;
+  padding: 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.home-form h1 {
+  color: black;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.home-form input {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.home-form input:focus {
+  outline: none;
+  border-color: red;
+}
+
+.home-form button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: white;
+  color: black;
+  border: 2px solid red;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 1rem;
+}
+
+.home-form button:hover {
+  background-color: red;
+  color: white;
+}
+
+.home-form button.danger {
+  background-color: #ff4444;
+  color: white;
+  border-color: #ff4444;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .home-container {
+    padding: 1rem;
+  }
+  
+  .home-form {
+    padding: 1.5rem;
+  }
+  
+  .home-form h1 {
+    font-size: 1.8rem;
+  }
+} 

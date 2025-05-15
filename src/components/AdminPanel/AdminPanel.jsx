@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getAllUsers, givePointsToUser } from "../../services/adminService";
+import './AdminPanel.css';
 
 function AdminPanel() {
   const [users, setUsers] = useState([]);

@@ -1,0 +1,122 @@
+.admin-panel {
+  width: 100%;
+  padding: 2rem;
+  font-family: sans-serif;
+  background-color: #f8f8f8;
+  min-height: calc(100vh - 80px); /* Account for navbar */
+}
+
+.admin-panel h1 {
+  color: black;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.admin-panel > input[type="text"] {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: block;
+  width: calc(100% - 1.6rem);
+  padding: 0.8rem;
+  margin-bottom: 2rem;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.admin-panel > input[type="text"]:focus {
+  outline: none;
+  border-color: red;
+}
+
+.admin-panel ul {
+  max-width: 1200px;
+  margin: 0 auto;
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.admin-page-user-card {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.admin-page-user-card h2 {
+  color: black;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.admin-page-user-card p {
+  color: black;
+  margin-bottom: 1rem;
+}
+
+.admin-page-user-card input {
+  display: block; /* Ensure inputs stack vertically */
+  width: calc(100% - 1.6rem); /* Account for padding */
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.admin-page-user-card input:focus {
+  outline: none;
+  border-color: red;
+}
+
+.admin-page-user-card button {
+  width: calc(100% - 1.6rem); /* Account for padding */
+  padding: 0.8rem;
+  background-color: white;
+  color: black;
+  border: 2px solid red;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.admin-page-user-card button:hover {
+  background-color: red;
+  color: white;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .admin-panel {
+    padding: 1rem;
+  }
+  
+  .admin-panel h1 {
+    font-size: 2rem;
+  }
+  
+  .admin-panel ul {
+    grid-template-columns: 1fr;
+  }
+  
+  .admin-page-user-card {
+    padding: 1rem;
+  }
+  
+  .admin-page-user-card input,
+  .admin-page-user-card button {
+    width: calc(100% - 1.2rem); /* Adjust for smaller padding */
+  }
+}

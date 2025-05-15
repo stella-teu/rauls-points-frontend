@@ -2,6 +2,7 @@ import { useState, useContext } from 'react'
 import { Link, useNavigate } from "react-router"
 import { signIn } from '../../services/authService'
 import { UserContext } from "../../contexts/UserContext";
+import './login.css';
 
 function Login() {
    const navigate = useNavigate();

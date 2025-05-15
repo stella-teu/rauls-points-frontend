@@ -1,0 +1,144 @@
+.profile-container {
+  width: 100%;
+  padding: 2rem;
+  font-family: sans-serif;
+  background-color: #f8f8f8;
+  min-height: calc(100vh - 80px); /* Account for navbar */
+}
+
+.profile-card {
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 3px solid #eee;
+}
+
+.profile-card h2 {
+  color: black;
+  margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+}
+
+.profile-card p {
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.profile-card button {
+  background-color: white;
+  color: black;
+  border: 2px solid red;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 4px;
+  margin: 0 0.5rem;
+}
+
+.profile-card button:hover {
+  background-color: red;
+  color: white;
+}
+
+/* Edit mode styles */
+.profile-card input,
+.profile-card textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.profile-card input:focus,
+.profile-card textarea:focus {
+  outline: none;
+  border-color: red;
+}
+
+.profile-card label {
+  display: block;
+  text-align: left;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.profile-card input[type="file"] {
+  border: none;
+  padding: 0;
+}
+
+/* Point history section */
+.point-history {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.point-history h3 {
+  color: black;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.point-history ul {
+  list-style: none;
+  padding: 0;
+}
+
+.point-history li {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.point-history li:last-child {
+  border-bottom: none;
+}
+
+.point-history strong {
+  color: red;
+  margin-right: 0.5rem;
+}
+
+.point-history small {
+  display: block;
+  color: #999;
+  margin-top: 0.3rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .profile-container {
+    margin: 1rem auto;
+  }
+  
+  .profile-card,
+  .point-history {
+    padding: 1.5rem;
+  }
+  
+  .profile-pic {
+    width: 120px;
+    height: 120px;
+  }
+} 
