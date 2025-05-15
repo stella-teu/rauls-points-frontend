@@ -23,7 +23,6 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/log-in" element={<Login />} />
         <Route path="/leaderboard" element={<Leaderboard/>}/>
-        <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/admin" element={<AdminPanel/>}/>
       </Routes>
     </>
