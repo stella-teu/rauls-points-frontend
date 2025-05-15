@@ -14,8 +14,13 @@ function NavBar() {
 
   const authenticatedLinks = (
     <ul>
-        <li>
-          <button onClick={handleSignOut}>Sign Out</button>
+      <li>
+        <Link to="/">
+          <button>Home</button>
+        </Link>
+      </li>
+      <li>
+        <button onClick={handleSignOut}>Sign Out</button>
       </li>
       <li>
         <Link to="/leaderboard">
@@ -53,7 +58,12 @@ function NavBar() {
   const adminLinks = (
     <ul>
       <li>
-          <button onClick={handleSignOut}>Sign Out</button>
+        <Link to="/">
+          <button>Home</button>
+        </Link>
+      </li>
+      <li>
+        <button onClick={handleSignOut}>Sign Out</button>
       </li>
       <li>
         <Link to="/admin">
@@ -73,11 +83,14 @@ function NavBar() {
     </ul>
   );
 
-
   return (
-  <nav>
-    {  profile?.is_admin ? adminLinks : (profile ? authenticatedLinks : unAuthenticatedLinks)}
-  </nav>
+    <nav>
+      {profile?.is_admin
+        ? adminLinks
+        : profile
+        ? authenticatedLinks
+        : unAuthenticatedLinks}
+    </nav>
   );
 }
 
