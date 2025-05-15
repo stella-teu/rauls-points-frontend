@@ -1,13 +1,7 @@
 import React, { useEffect } from 'react'
-<<<<<<< HEAD
 import { useState } from "react";
 import { Link } from "react-router"
-import { getUsers } from "../../services/userServise";
-=======
-import { useState, useNavigate } from "react";
-import { Link } from "react-router"
 import { getUsers } from '../../services/userService';
->>>>>>> ed94d938ac65f3acef7ed7eacf7a95b8531d2945
 
 function Leaderboard() {
   // const navigate = useNavigate();
@@ -46,8 +40,4 @@ function Leaderboard() {
   )
 }
 
-<<<<<<< HEAD
 export default Leaderboard
-=======
-export default Leaderboard
->>>>>>> ed94d938ac65f3acef7ed7eacf7a95b8531d2945

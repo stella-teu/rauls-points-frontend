@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext.jsx";
 import { Link, useNavigate } from "react-router";
+import "./NavBar.css";
 
 function NavBar() {
   const { profile, setProfile } = useContext(UserContext);
@@ -13,25 +14,25 @@ function NavBar() {
   };
 
   const authenticatedLinks = (
-    <ul>
-        <li>
-          <button onClick={handleSignOut}>Sign Out</button>
+    <ul className="nav-links">
+      <li>
+        <button onClick={handleSignOut}>Sign Out</button>
       </li>
       <li>
         <Link to="/leaderboard">
-          <button>Leaderboard </button>
+          <button>Leaderboard</button>
         </Link>
       </li>
       <li>
         <Link to="/profile/:id">
-          <button>Profile </button>
+          <button>Profile</button>
         </Link>
       </li>
     </ul>
   );
 
   const unAuthenticatedLinks = (
-    <ul>
+    <ul className="nav-links">
       <li>
         <Link to="/">
           <button>Home</button>
@@ -39,21 +40,21 @@ function NavBar() {
       </li>
       <li>
         <Link to="/register">
-          <button>Register </button>
+          <button>Register</button>
         </Link>
       </li>
       <li>
         <Link to="/log-in">
-          <button>Log In </button>
+          <button>Log In</button>
         </Link>
       </li>
     </ul>
   );
 
   const adminLinks = (
-    <ul>
+    <ul className="nav-links">
       <li>
-          <button onClick={handleSignOut}>Sign Out</button>
+        <button onClick={handleSignOut}>Sign Out</button>
       </li>
       <li>
         <Link to="/admin">
@@ -62,22 +63,26 @@ function NavBar() {
       </li>
       <li>
         <Link to="/leaderboard">
-          <button>Leaderboard </button>
+          <button>Leaderboard</button>
         </Link>
       </li>
       <li>
         <Link to="/profile/:id">
-          <button>Profile </button>
+          <button>Profile</button>
         </Link>
       </li>
     </ul>
   );
 
-
   return (
-  <nav>
-    {  profile?.is_admin ? adminLinks : (profile ? authenticatedLinks : unAuthenticatedLinks)}
-  </nav>
+    <nav className="navbar">
+      <div className="navbar-logo">RAUL'S POINTS</div>
+      {profile?.is_admin
+        ? adminLinks
+        : profile
+        ? authenticatedLinks
+        : unAuthenticatedLinks}
+    </nav>
   );
 }
 
