@@ -9,6 +9,12 @@ const Profile = () => {
   const [editMode, setEditMode] = useState(false);
   const [editData, setEditData] = useState({});
   const [points, setPoints] = useState({})
+  const [selectedFile, setSelectedFile] = useState("");
+
+  const handleFileChange = (event) => {
+    console.log(event.target.files[0])
+    setSelectedFile(event.target.files[0]);
+  };
 
 useEffect(() => {
   const fetchData = async () => {
@@ -17,15 +23,16 @@ useEffect(() => {
       setProfile(profileData);
       setEditData({
         bio: profileData.bio,
-        profile_pic: profileData.profile_pic,
+        // profile_pic: profileData.profile_pic,
         username: profileData.user.username
-});
+      });
+      // setSelectedFile(profileData.profile_pic)
       const res = await api.get(`/profiles/${profileData.id}/points`);
       setPoints(res.data);
-  } catch (err) {
-    console.error(err);
-    navigate("/login");
-    }
+    } catch (err) {
+      console.error(err);
+      navigate("/login");
+      }
   };
 
   fetchData();
@@ -43,21 +50,32 @@ const handleEditToggle = async () => {
   const profileData = await verifyUserProfile();
   setEditData({
     bio: profileData.bio,
-    profile_pic: profileData.profile_pic,
+    // profile_pic: profileData.profile_pic,
     username: profileData.user.username
   });
 };
 
 const handleSave = async () => {
   try {
-    const payload = {
-      bio: editData.bio,
-      profile_pic: editData.profile_pic,
-      user: {
-        username: editData.username
-      }
-    };
-    const res = await api.put(`/profiles/${profile.id}/`, editData);
+    const formData = new FormData();
+
+    // Append file only if selected
+    if (selectedFile) {
+      formData.append("profile_pic", selectedFile);
+    }
+
+    // Append the other fields
+    formData.append("bio", editData.bio);
+    formData.append("user.username", editData.username);
+
+    // const payload = {
+    //   bio: editData.bio,
+    //   user: {
+    //     username: editData.username
+    //   }
+    // };
+
+    const res = await api.patch(`/profiles/${profile.id}/`, formData);
     setProfile(res.data.profile);
     setEditMode(false);
   } catch (error) {
@@ -87,10 +105,10 @@ return (
             />
             <label>Profile Picture:</label>
             <input
-              type="text"
+              type="file"
               name="profile_pic"
-              value={editData.profile_pic}
-              onChange={handleInputChange}  
+              // value={selectedFile}
+              onChange={handleFileChange}  
               placeholder="Image URL"
               />
              <div>

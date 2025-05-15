@@ -10,6 +10,7 @@ import { useContext } from "react";
 import { UserContext } from "./contexts/UserContext.jsx"
 import { Routes, Route } from "react-router";
 import "./App.css";
+import AdminPanel from "./components/AdminPanel/AdminPanel.jsx";
 
 function App() {
   const { profile } = useContext(UserContext);
@@ -23,6 +24,7 @@ function App() {
         <Route path="/log-in" element={<Login />} />
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/admin" element={<AdminPanel/>}/>
       </Routes>
     </>
   );
