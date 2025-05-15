@@ -4,9 +4,7 @@ import { getUsers } from "../../services/userService";
 
 function Landing() {
     const [users, setUsers] = useState([])
-    const [error, setError] = useState("");
 
-  
     useEffect(() => {
       const fetchUsers = async() => {
         const usersData = await getUsers()
@@ -15,8 +13,6 @@ function Landing() {
   
       fetchUsers()
     }, [])
-
-  if (error) return <p>{error}</p>;
 
   const podium = users.slice(0, 3);
   const rest = users.slice(3);

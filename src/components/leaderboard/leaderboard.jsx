@@ -1,26 +1,54 @@
 import React, { useEffect } from 'react'
-import { useState, useNavigate } from "react";
+import { useState } from "react";
 import { Link } from "react-router"
 import { getUsers } from '../../services/userService';
+import './leaderboard.css';
 
 function Leaderboard() {
   // const navigate = useNavigate();
   const [users, setUsers] = useState([])
+  const [cohorts, setCohorts] = useState([])
+  const [selectedCohort, setSelectedCohort] = useState("")
+  const [toggle, setToggle] = useState(false)
+
+  const fetchUsers = async() => {
+    const usersData = await getUsers(selectedCohort)
+
+    const cohortSet = new Set();
+    usersData.forEach(profile => {
+      if (profile.cohort_name) {
+        cohortSet.add(profile.cohort_name);
+      }
+    });
+
+    const cohortArray = [...cohortSet];
+
+    setUsers(usersData)
+    setCohorts(cohortArray)
+  }
 
   useEffect(() => {
-    const fetchUsers = async() => {
-      const usersData = await getUsers()
-      setUsers(usersData)
-    }
-
     fetchUsers()
-  }, [])
+  }, [toggle])
+
+  const handleChange = (e) => {
+    setSelectedCohort(e.target.value)
+    setToggle(prev => !prev)
+  }
 
   return (
     <div className='leaderboard-page'>
       <h1>Leaderboard</h1>
       <div className="cohort-dropdown">
-        <button className='Cohort'></button>
+        <label htmlFor="cohort-btn">Select a Cohort</label>
+        <select name="cohort-btn" id="cohort-btn" value={selectedCohort} onChange={handleChange}>
+          <option value=""> -- All -- </option>
+          {cohorts.map((cohortName, i) => (
+            <option value={cohortName} key={i}>{cohortName}</option>
+          ))}
+        </select>
+
+        {selectedCohort && <p>You selected cohort: {selectedCohort}</p>}
       </div>
        <table className="leaderboard-table">
         <thead>

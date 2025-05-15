@@ -1,10 +1,15 @@
 import api from "./apiConfig";
 
-export const getUsers = async() => {
+export const getUsers = async(cohortName) => {
   try {
-    const response = await api.get("/profiles/?cohort=seb224&leaderboard=true")
-    return response.data;
+    if (cohortName) {
+      const response = await api.get(`/profiles/?cohort=${cohortName}&leaderboard=true`)
+      return response.data;
+    } else {
+      const response = await api.get("/profiles/?leaderboard=true")
+      return response.data;
+    }
   } catch (error) {
-    throw error;
+    console.error(error)
   }
 }

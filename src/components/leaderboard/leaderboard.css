@@ -1,0 +1,116 @@
+.leaderboard-page {
+  width: 100%;
+  padding: 2rem;
+  font-family: sans-serif;
+  background-color: #f8f8f8;
+  min-height: calc(100vh - 80px); /* Account for navbar */
+}
+
+.leaderboard-page h1 {
+  color: black;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.cohort-dropdown {
+  max-width: 1200px;
+  margin: 0 auto 2rem auto;
+  text-align: center;
+}
+
+.cohort-dropdown label {
+  margin-right: 1rem;
+  font-weight: 600;
+  color: black;
+}
+
+.cohort-dropdown select {
+  padding: 0.5rem 1rem;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: white;
+  transition: border-color 0.2s;
+  color: black;
+}
+
+.cohort-dropdown select:hover,
+.cohort-dropdown select:focus {
+  border-color: red;
+  outline: none;
+}
+
+.cohort-dropdown p {
+  margin-top: 0.5rem;
+  color: black;
+}
+
+.leaderboard-table {
+  max-width: 1200px;
+  margin: 2rem auto 0 auto;
+  width: calc(100% - 4rem);
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.leaderboard-table th,
+.leaderboard-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  color: black;
+}
+
+.leaderboard-table th {
+  background-color: black;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+.leaderboard-table tr:hover {
+  background-color: #f8f8f8;
+}
+
+.leaderboard-table .avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Rank styling */
+.leaderboard-table td:first-child {
+  font-weight: 600;
+  color: black;
+}
+
+/* Points column styling */
+.leaderboard-table td:nth-child(4) {
+  font-weight: 600;
+  color: red;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .leaderboard-page {
+    padding: 1rem;
+  }
+  
+  .leaderboard-table th,
+  .leaderboard-table td {
+    padding: 0.75rem;
+  }
+  
+  .leaderboard-table {
+    font-size: 0.9rem;
+  }
+} 

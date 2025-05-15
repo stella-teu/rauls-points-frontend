@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import api from "../../services/apiConfig";
 import { verifyUserProfile } from "../../services/authService";
+import './profile.css';
 
 const Profile = () => {
   const navigate = useNavigate();
