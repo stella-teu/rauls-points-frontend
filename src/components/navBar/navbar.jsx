@@ -14,7 +14,14 @@ function NavBar() {
   };
 
   const authenticatedLinks = (
+
     <ul className="nav-links">
+      <li>
+        <Link to="/">
+          <button>Home</button>
+        </Link>
+      </li>
+
       <li>
         <button onClick={handleSignOut}>Sign Out</button>
       </li>
@@ -54,6 +61,11 @@ function NavBar() {
   const adminLinks = (
     <ul className="nav-links">
       <li>
+        <Link to="/">
+          <button>Home</button>
+        </Link>
+      </li>
+      <li>
         <button onClick={handleSignOut}>Sign Out</button>
       </li>
       <li>
@@ -75,6 +87,7 @@ function NavBar() {
   );
 
   return (
+
     <nav className="navbar">
       <div className="navbar-logo">RAUL'S POINTS</div>
       {profile?.is_admin
