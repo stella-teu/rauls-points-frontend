@@ -2,12 +2,9 @@ import { useEffect, useState } from "react";
 import "./Landing.css";
 import { getUsers } from "../../services/userService";
 
-// const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
-
 function Landing() {
     const [users, setUsers] = useState([])
-    // const [loading, setLoading] = useState(true);
-    const [error] = useState("");
+    const [error, setError] = useState("");
 
   
     useEffect(() => {
@@ -18,30 +15,7 @@ function Landing() {
   
       fetchUsers()
     }, [])
-//   const [leaders, setLeaders] = useState([]);
-//   const [error, setError] = useState("");
 
-//   useEffect(() => {
-//     fetch(`${BACKEND_URL}/profiles/?leaderboard=true`, {
-//       headers: {
-//         "Content-Type": "application/json",
-//       }
-//     })
-//       .then(res => {
-//         if (!res.ok) throw new Error("Failed to fetch leaderboard");
-//         return res.json();
-//       })
-//       .then(data => {
-//         setLeaders(data);
-//         setLoading(false);
-//       })
-//       .catch(err => {
-//         setError(err.message);
-//         setLoading(false);
-//       });
-//   }, []);
-
-  // if (loading) return <p>Loading leaderboard...</p>;
   if (error) return <p>{error}</p>;
 
   const podium = users.slice(0, 3);
