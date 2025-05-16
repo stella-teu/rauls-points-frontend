@@ -31,5 +31,14 @@
 **Admin panele**
 ![Raul's Points ](./src/assets/Admin%20Panel.png)
 
+## Future additions
+- As a user, I want to receive badges for milestones (e.g., 100 points).
+
+- As a user, I want to leave positive shout-outs on other users’ profiles.
+
+- As a user, I want to view my badge collection on my profile.
+
+- As a user, I want to view all-time, daily, and cohort-specific leaderboards.
+
 ## Links
 - https://trello.com/b/AJIzZlW7/rauls-points-scoreboard
