@@ -65,7 +65,7 @@ function Leaderboard() {
             <tr key={user.id}>
               <td>{idx + 4}</td>
               <td>
-                <img className="avatar" src={user.profile_pic || "/default.jpg"} alt="profile" />
+                <img className="avatar" src={user.profile_pic.replace(".jpeg", ".jpg") || "/default.jpg"} alt="profile" />
               </td>
               <td>{user.user.username}</td>
               <td>{user.total_points}</td>
@@ -74,20 +74,7 @@ function Leaderboard() {
           ))}
         </tbody>
       </table>
-      {/* <div className="leaderboard-container">
-        <ol>
-        {users.length && users.map((user) => (
-          <div key={user.id} className="user-card">
-            <li>
-              <Link to={`/profiles/${user.id}`}>
-              </Link>
-              <h2>{user.user.username}</h2>
-              <p>{user.total_points}</p>
-              </li>
-            </div>
-        ))}
-        </ol>
-      </div> */}
+      
     </div>
   )
 }

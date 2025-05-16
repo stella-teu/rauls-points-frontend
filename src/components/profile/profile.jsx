@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import api from "../../services/apiConfig";
 import { verifyUserProfile } from "../../services/authService";
-import './profile.css';
+import "./profile.css";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ const Profile = () => {
         setProfile(profileData);
         setEditData({
           bio: profileData.bio,
-          // profile_pic: profileData.profile_pic,
+          profile_pic: profileData.profile_pic,
           username: profileData.user.username,
         });
         // setSelectedFile(profileData.profile_pic)
@@ -79,6 +79,16 @@ const Profile = () => {
     }
   };
 
+  const handleDeleteProfile = async () => {
+    try {
+      await api.delete(`/profiles/${profile.id}/`);
+      localStorage.removeItem("token");
+      navigate("/");
+    } catch (error) {
+      console.error("Failed to delete profile", error);
+    }
+  };
+
   return (
     <div className="profile-container">
       {profile && (
@@ -110,6 +120,7 @@ const Profile = () => {
               <div>
                 <button onClick={handleSave}>Save</button>
                 <button onClick={handleEditToggle}>Cancel</button>
+                <button onClick={handleDeleteProfile}>Delete Profile</button>
               </div>
             </>
           ) : (
