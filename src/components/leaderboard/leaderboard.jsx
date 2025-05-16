@@ -63,7 +63,7 @@ function Leaderboard() {
         <tbody>
           {users.map((user, idx) => (
             <tr key={user.id}>
-              <td>{idx + 4}</td>
+              <td>{idx + 1}</td>
               <td>
                 <img className="avatar" src={user.profile_pic.replace(".jpeg", ".jpg") || "/default.jpg"} alt="profile" />
               </td>
